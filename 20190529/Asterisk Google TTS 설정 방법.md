@@ -1,5 +1,5 @@
 # 구글 TTS(Text To Speech) 설정 방법
----
+
 
 ## 구글 TTS를 설치한다.
 ```
@@ -31,7 +31,7 @@ $ cd asterisk-goo*
 $ cd cli
 $ mv googletts-cli.pl /usr/local/sbin/googletts-cli.pl
 ```
----
+
 ## propolys-tts.agi를 구성한다.
 ```
 $ vi /var/lib/asterisk/agi-bin/propolys-tts.agi
@@ -51,7 +51,7 @@ or
 > exec($enginebin." -r ".$format['rate']." -f $textfile -o $tmpwavefile");
 > break;
 ```                        
----
+
 ## 편집결과
 >case 'swift':
 >exec($enginebin." -p audio/channels=1,audio/sampling-rate=8000 -o $wavefile -f $textfile");
@@ -61,13 +61,13 @@ or
 >break;
 >default:
 
----
+
 ## FreePBX GUI에 음성 엔진 추가 (Settings-Text to Speech Engines)
 ```
 Path: /usr/local/sbin/googletts-cli.pl
 Engine: googleTTS
 ```
----
+
 ## 테스트 확인
 ```
 $ googletts-cli.pl -t "test" -f aaa.mp3 -l kr -o 111.wav
