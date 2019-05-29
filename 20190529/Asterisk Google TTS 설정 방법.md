@@ -36,20 +36,20 @@ $ mv googletts-cli.pl /usr/local/sbin/googletts-cli.pl
 ```
 $ vi /var/lib/asterisk/agi-bin/propolys-tts.agi
 
->Find
->case 'swift':
-> exec($enginebin." -p audio/channels=1,audio/sampling-rate=8000 -o $wavefile -f $textfile");
-> break;
->and below add
->case 'googleTTS':
-> exec($enginebin." -l de -f $textfile -r 8000 -o $wavefile");
-> break;
+Find
+case 'swift':
+ exec($enginebin." -p audio/channels=1,audio/sampling-rate=8000 -o $wavefile -f $textfile");
+ break;
+and below add
+case 'googleTTS':
+ exec($enginebin." -l de -f $textfile -r 8000 -o $wavefile");
+ break;
 
 or 
 
->case 'googleTTS':
-> exec($enginebin." -r ".$format['rate']." -f $textfile -o $tmpwavefile");
-> break;
+case 'googleTTS':
+ exec($enginebin." -r ".$format['rate']." -f $textfile -o $tmpwavefile");
+ break;
 ```                        
 
 ## 편집결과
